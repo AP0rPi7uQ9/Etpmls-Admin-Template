@@ -2,7 +2,7 @@
   <div class="login-container">
     <el-alert
       v-if="nodeEnv !== 'development'"
-      title="beautiful boys and girls欢迎加入vue-admin-beautifulQQ群：972435319"
+      title="Thank you for using Etpmls-Admin!"
       type="success"
       :closable="false"
       style="position: fixed;"
@@ -59,6 +59,24 @@
               <vab-icon :icon="['fas', 'eye']"></vab-icon>
             </span>
           </el-form-item>
+
+          <el-form-item prop="captcha">
+            <el-input v-model="form.captcha" placeholder="请输入验证码" />
+          </el-form-item>
+
+          <el-form-item prop="captchapic">
+            <div>
+              <img
+                v-if="captcha_id_src"
+                id="image"
+                :src="captcha_id_src"
+                alt="Captcha image"
+                width="50%"
+                @click="CaptchaGetOne"
+              />
+            </div>
+          </el-form-item>
+
           <el-button
             :loading="loading"
             class="login-btn"
@@ -67,9 +85,9 @@
           >
             登录
           </el-button>
-          <router-link to="/register">
+          <!--<router-link to="/register">
             <div style="margin-top: 20px;">注册</div>
-          </router-link>
+          </router-link>-->
         </el-form>
       </el-col>
     </el-row>
@@ -78,6 +96,8 @@
 
 <script>
   import { isPassword } from "@/utils/validate";
+  import { CaptchaGetOne } from "@/api/api";
+  const { baseURL } = require("@/config/settings");
 
   export default {
     name: "Login",
@@ -103,12 +123,20 @@
           callback();
         }
       };
+      const validateCaptcha = (rule, value, callback) => {
+        if ("" == value) {
+          callback(new Error("验证码不能为空"));
+        } else {
+          callback();
+        }
+      };
       return {
         nodeEnv: process.env.NODE_ENV,
         title: this.$baseTitle,
         form: {
           username: "",
           password: "",
+          captcha: "",
         },
         rules: {
           username: [
@@ -125,10 +153,19 @@
               validator: validatePassword,
             },
           ],
+          captcha: [
+            {
+              required: true,
+              trigger: "blur",
+              validator: validateCaptcha,
+            },
+          ],
+          captcha_id: [{ required: true, trigger: "blur" }],
         },
         loading: false,
         passwordType: "password",
         redirect: undefined,
+        captcha_id_src: undefined,
       };
     },
     watch: {
@@ -141,6 +178,7 @@
     },
     created() {
       document.body.style.overflow = "hidden";
+      this.CaptchaGetOne();
     },
     beforeDestroy() {
       document.body.style.overflow = "auto";
@@ -175,15 +213,27 @@
                 this.loading = false;
               })
               .catch(() => {
+                // Get verification code again
+                // 重新获取验证码
+                this.CaptchaGetOne();
                 this.loading = false;
               });
           } else {
             return false;
           }
         });
-        setTimeout(() => {
+        /*setTimeout(() => {
           window.open("https://github.com/chuzhixin/vue-admin-beautiful");
-        }, 100000);
+        }, 100000);*/
+      },
+      async CaptchaGetOne() {
+        const { data } = await CaptchaGetOne();
+        this.form.captcha_id = data;
+        // Show Picture
+        /*var a = document.createElement("a");
+            a.href = process.env.VUE_APP_BASE_API;*/
+        this.captcha_id_src =
+          baseURL + "/api/v2/captcha/getPicture/" + data + ".png";
       },
     },
   };

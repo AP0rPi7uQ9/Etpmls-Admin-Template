@@ -13,7 +13,7 @@ Vue.use(VueRouter);
 export const constantRoutes = [
   {
     path: "/login",
-    component: () => import("@/views/login/index"),
+    component: () => import("@/views/login/etpmlsAdmin-index"),
     hidden: true,
   },
   {
