@@ -21,9 +21,6 @@ const mutations = {
   setPartialRoutes(state, routes) {
     state.partialRoutes = constantRoutes.concat(routes);
   },
-  setEtpmlsRoutes(state, routes) {
-    state.routes = constantRoutes.concat(routes);
-  },
 };
 const actions = {
   async setRoutes({ commit }, permissions) {
@@ -42,19 +39,6 @@ const actions = {
     let accessRoutes = filterAllRoutes(data);
     commit("setAllRoutes", accessRoutes);
     return accessRoutes;
-  },
-  async setEtpmlsRoutes({ commit }, permissions) {
-    let { data } = await getRouterList();
-    data.push({ path: "*", redirect: "/404", hidden: true });
-    let accessedRoutes = [];
-    if (permissions.includes("admin")) {
-      accessedRoutes = data;
-    } else {
-      accessedRoutes = await filterAsyncRoutes(data, permissions);
-    }
-    let etpmlsRoutes = filterAllRoutes(accessedRoutes);
-    commit("setEtpmlsRoutes", etpmlsRoutes);
-    return etpmlsRoutes;
   },
   setPartialRoutes({ commit }, accessRoutes) {
     commit("setPartialRoutes", accessRoutes);

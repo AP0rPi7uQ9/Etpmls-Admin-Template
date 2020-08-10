@@ -3,6 +3,10 @@ import App from "./App";
 import store from "./store";
 import router from "./router";
 import "./plugins";
+
+import JsonEditor from "vue-json-edit";
+Vue.use(JsonEditor);
+
 /**
  * @copyright chuzhixin 1204505056@qq.com
  * @description 生产环境与演示环境默认都使用mock，如果正式用于生产环境时，记得去掉
