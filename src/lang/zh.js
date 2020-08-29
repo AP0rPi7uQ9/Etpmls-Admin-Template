@@ -171,5 +171,13 @@ export default {
     tagsView: '开启 Tags-View',
     fixedHeader: '固定 Header',
     sidebarLogo: '侧边栏 Logo'
+  },
+  etpmls_admin: {
+    login: {
+      title: 'Etpmls-Admin',
+      username: '请输入用户名!',
+      password: '密码不能少于6位字符!',
+      video_not_supported: '浏览器不支持 video 标签，建议升级浏览器'
+    }
   }
 }
