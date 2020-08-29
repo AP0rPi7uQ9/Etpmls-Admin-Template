@@ -177,6 +177,7 @@ export default {
       title: 'Etpmls-Admin',
       username: 'Please enter the user name',
       password: 'The password can not be less than 6 digits',
+      captcha: 'please enter verification code',
       video_not_supported: 'The browser does not support the video tag. It is recommended to upgrade the browser'
     }
   }

@@ -45,6 +45,28 @@
               show-password
             />
           </el-form-item>
+
+          <el-form-item label-width="0" prop="captcha">
+            <el-input v-model="form.captcha" :placeholder="$t('etpmls_admin.login.captcha')" clearable />
+          </el-form-item>
+
+          <el-form-item label-width="0" prop="captchapic" style="background-color: #ffffff">
+            <div>
+              <img
+                v-if="captcha_id_src"
+                id="image"
+                :src="captcha_id_src"
+                alt="Captcha image"
+                width="100%"
+                @click="CaptchaGetOne"
+              >
+            </div>
+          </el-form-item>
+
+          <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
+            {{ $t('login.logIn') }}
+          </el-button>
+
           <el-form-item label-width="0" prop="submit">
             <el-button type="primary" icon="el-icon-unlock" size="medium" style="width: 100%;"> {{ $t('login.logIn') }} </el-button>
           </el-form-item>
@@ -56,6 +78,7 @@
 </template>
 <script>
 import LangSelect from '@/components/LangSelect'
+import { CaptchaGetOne } from '@/api/etpmls-admin'
 export default {
   components: { LangSelect },
   props: [],
@@ -74,50 +97,45 @@ export default {
         callback()
       }
     }
+    const validateCaptcha = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error(this.$t('etpmls_admin.login.captcha')))
+      } else {
+        callback()
+      }
+    }
     return {
       form: {
         username: '',
-        password: ''
+        password: '',
+        captcha: '',
+        captcha_id: ''
       },
       rules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        password: [{ required: true, trigger: 'blur', validator: validatePassword }],
+        captcha: [
+          {
+            required: true,
+            trigger: 'blur',
+            validator: validateCaptcha
+          }
+        ],
+        captcha_id: [{ required: true, trigger: 'blur' }]
       },
       vedioCanPlay: false,
-      fixStyle: ''
+      fixStyle: '',
+      loading: false,
+      captcha_id_src: undefined
     }
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted: function() {
-    window.onresize = () => {
-      const windowWidth = document.body.clientWidth
-      const windowHeight = document.body.clientHeight
-      const windowAspectRatio = windowHeight / windowWidth
-      let videoWidth
-      let videoHeight
-      if (windowAspectRatio < 0.5625) {
-        videoWidth = windowWidth
-        videoHeight = videoWidth * 0.5625
-        this.fixStyle = {
-          height: windowWidth * 0.5625 + 'px',
-          width: windowWidth + 'px',
-          'margin-bottom': (windowHeight - videoHeight) / 2 + 'px',
-          'margin-left': 'initial'
-        }
-      } else {
-        videoHeight = windowHeight
-        videoWidth = videoHeight / 0.5625
-        this.fixStyle = {
-          height: windowHeight + 'px',
-          width: windowHeight / 0.5625 + 'px',
-          'margin-left': (windowWidth - videoWidth) / 2 + 'px',
-          'margin-bottom': 'initial'
-        }
-      }
-    }
-    window.onresize()
+  created() {
+    this.CaptchaGetOne()
+  },
+  mounted() {
+    this.windowsResize()
   },
   methods: {
     submitForm() {
@@ -131,6 +149,60 @@ export default {
     },
     canplay() {
       this.vedioCanPlay = true
+    },
+    async CaptchaGetOne() {
+      const { data } = await CaptchaGetOne()
+      this.form.captcha_id = data
+      // Show Picture
+      this.captcha_id_src = process.env.VUE_APP_BASE_API + '/api/v2/captcha/getPicture/' + data + '.png'
+    },
+    windowsResize() {
+      window.onresize = () => {
+        const windowWidth = document.body.clientWidth
+        const windowHeight = document.body.clientHeight
+        const windowAspectRatio = windowHeight / windowWidth
+        let videoWidth
+        let videoHeight
+        if (windowAspectRatio < 0.5625) {
+          videoWidth = windowWidth
+          videoHeight = videoWidth * 0.5625
+          this.fixStyle = {
+            height: windowWidth * 0.5625 + 'px',
+            width: windowWidth + 'px',
+            'margin-bottom': (windowHeight - videoHeight) / 2 + 'px',
+            'margin-left': 'initial'
+          }
+        } else {
+          videoHeight = windowHeight
+          videoWidth = videoHeight / 0.5625
+          this.fixStyle = {
+            height: windowHeight + 'px',
+            width: windowHeight / 0.5625 + 'px',
+            'margin-left': (windowWidth - videoWidth) / 2 + 'px',
+            'margin-bottom': 'initial'
+          }
+        }
+      }
+      window.onresize()
+    },
+    handleLogin() {
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          this.loading = true
+          this.$store.dispatch('user/login', this.form)
+            .then(() => {
+              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              this.loading = false
+            })
+            .catch(() => {
+              this.loading = false
+              this.CaptchaGetOne()
+            })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
     }
   }
 }

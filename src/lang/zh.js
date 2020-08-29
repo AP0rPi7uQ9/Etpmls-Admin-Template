@@ -177,6 +177,7 @@ export default {
       title: 'Etpmls-Admin',
       username: '请输入用户名!',
       password: '密码不能少于6位字符!',
+      captcha: '请输入验证码',
       video_not_supported: '浏览器不支持 video 标签，建议升级浏览器'
     }
   }
