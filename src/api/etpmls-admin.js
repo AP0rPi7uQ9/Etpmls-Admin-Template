@@ -47,10 +47,11 @@ export function RoleEdit(data) {
   })
 }
 
-export function RoleGetAll() {
+export function RoleGetAll(param) {
   return request({
     url: '/role/getAll',
-    method: 'get'
+    method: 'get',
+    params: param
   })
 }
 
@@ -78,10 +79,11 @@ export function UserEdit(data) {
   })
 }
 
-export function UserGetAll() {
+export function UserGetAll(param) {
   return request({
     url: '/user/getAll',
-    method: 'get'
+    method: 'get',
+    params: param
   })
 }
 
@@ -124,10 +126,11 @@ export function PermissionEdit(data) {
   })
 }
 
-export function PermissionGetAll() {
+export function PermissionGetAll(param) {
   return request({
     url: '/permission/getAll',
-    method: 'get'
+    method: 'get',
+    params: param
   })
 }
 
