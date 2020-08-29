@@ -67,9 +67,6 @@
             {{ $t('login.logIn') }}
           </el-button>
 
-          <el-form-item label-width="0" prop="submit">
-            <el-button type="primary" icon="el-icon-unlock" size="medium" style="width: 100%;"> {{ $t('login.logIn') }} </el-button>
-          </el-form-item>
         </el-form>
 
       </div>
@@ -138,12 +135,6 @@ export default {
     this.windowsResize()
   },
   methods: {
-    submitForm() {
-      this.$refs['form'].validate(valid => {
-        if (!valid) return
-        // TODO 提交表单
-      })
-    },
     resetForm() {
       this.$refs['form'].resetFields()
     },
@@ -154,7 +145,7 @@ export default {
       const { data } = await CaptchaGetOne()
       this.form.captcha_id = data
       // Show Picture
-      this.captcha_id_src = process.env.VUE_APP_BASE_API + '/api/v2/captcha/getPicture/' + data + '.png'
+      this.captcha_id_src = process.env.VUE_APP_BASE_API + '/captcha/getPicture/' + data + '.png'
     },
     windowsResize() {
       window.onresize = () => {
@@ -191,6 +182,7 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.form)
             .then(() => {
+              this.MenuGetAll()
               this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
             })
@@ -298,7 +290,8 @@ $light_gray:#eee;
         position: relative;
         width: 520px;
         max-width: 100%;
-        padding: 160px 35px 0;
+        // padding: 160px 35px 0;
+        padding: 10% 35px 0;
         margin: 0 auto;
         overflow: hidden;
         z-index: 100;

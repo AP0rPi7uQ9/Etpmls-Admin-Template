@@ -2,15 +2,15 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/api/v2/user/login',
+    url: '/user/login',
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function UserGetCurrent(token) {
   return request({
-    url: '/api/v2/user/getCurrent',
+    url: '/user/getCurrent',
     method: 'get',
     params: { token }
   })
@@ -18,14 +18,14 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/api/v2/user/logout',
+    url: '/user/logout',
     method: 'post'
   })
 }
 
 export function register(data) {
   return request({
-    url: '/api/v2/user/register',
+    url: '/user/register',
     method: 'post',
     data
   })
@@ -33,7 +33,7 @@ export function register(data) {
 
 export function RoleCreate(data) {
   return request({
-    url: '/api/v2/role/create',
+    url: '/role/create',
     method: 'post',
     data
   })
@@ -41,7 +41,7 @@ export function RoleCreate(data) {
 
 export function RoleEdit(data) {
   return request({
-    url: '/api/v2/role/edit',
+    url: '/role/edit',
     method: 'put',
     data
   })
@@ -49,14 +49,14 @@ export function RoleEdit(data) {
 
 export function RoleGetAll() {
   return request({
-    url: '/api/v2/role/getAll',
+    url: '/role/getAll',
     method: 'get'
   })
 }
 
 export function RoleDelete(data) {
   return request({
-    url: '/api/v2/role/delete',
+    url: '/role/delete',
     method: 'delete',
     data
   })
@@ -64,7 +64,7 @@ export function RoleDelete(data) {
 
 export function UserCreate(data) {
   return request({
-    url: '/api/v2/user/create',
+    url: '/user/create',
     method: 'post',
     data
   })
@@ -72,7 +72,7 @@ export function UserCreate(data) {
 
 export function UserEdit(data) {
   return request({
-    url: '/api/v2/user/edit',
+    url: '/user/edit',
     method: 'put',
     data
   })
@@ -80,22 +80,29 @@ export function UserEdit(data) {
 
 export function UserGetAll() {
   return request({
-    url: '/api/v2/user/getAll',
+    url: '/user/getAll',
     method: 'get'
   })
 }
 
 export function UserDelete(data) {
   return request({
-    url: '/api/v2/user/delete',
+    url: '/user/delete',
     method: 'delete',
     data
   })
 }
 
+export function MenuGetAll() {
+  return request({
+    url: '/menu/getAll',
+    method: 'get'
+  })
+}
+
 export function MenuCreate(data) {
   return request({
-    url: '/api/v2/menu/create',
+    url: '/menu/create',
     method: 'post',
     data
   })
@@ -103,7 +110,7 @@ export function MenuCreate(data) {
 
 export function PermissionCreate(data) {
   return request({
-    url: '/api/v2/permission/create',
+    url: '/permission/create',
     method: 'post',
     data
   })
@@ -111,7 +118,7 @@ export function PermissionCreate(data) {
 
 export function PermissionEdit(data) {
   return request({
-    url: '/api/v2/permission/edit',
+    url: '/permission/edit',
     method: 'put',
     data
   })
@@ -119,14 +126,14 @@ export function PermissionEdit(data) {
 
 export function PermissionGetAll() {
   return request({
-    url: '/api/v2/permission/getAll',
+    url: '/permission/getAll',
     method: 'get'
   })
 }
 
 export function PermissionDelete(data) {
   return request({
-    url: '/api/v2/permission/delete',
+    url: '/permission/delete',
     method: 'delete',
     data
   })
@@ -134,7 +141,7 @@ export function PermissionDelete(data) {
 
 export function CaptchaGetOne() {
   return request({
-    url: '/api/v2/captcha/getOne',
+    url: '/captcha/getOne',
     method: 'get'
   })
 }

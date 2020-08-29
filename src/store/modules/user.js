@@ -1,5 +1,5 @@
-import { logout, getInfo } from '@/api/user'
-import { login } from '@/api/etpmls-admin'
+import { logout /*, getInfo*/ } from '@/api/user'
+import { login, UserGetCurrent } from '@/api/etpmls-admin'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
@@ -48,7 +48,7 @@ const actions = {
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
-      getInfo(state.token).then(response => {
+      UserGetCurrent(state.token).then(response => {
         const { data } = response
 
         if (!data) {
