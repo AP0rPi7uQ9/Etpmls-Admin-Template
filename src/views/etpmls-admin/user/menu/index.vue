@@ -2,19 +2,19 @@
   <div class="app-container">
     <el-row>
       <el-alert
-        title="注意！"
+        :title="lang('warning')"
         type="warning"
-        description="请谨慎配置本页面！第一次配置前请先向相关人员请教，配置错误将会导致后台无法打开！"
+        :description="lang('etp_message.menu_warning')"
         show-icon
         style="margin-bottom: 2rem;"
       />
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
         <div class="left-panel">
-          <el-button icon="el-icon-plus" type="primary" size="small" @click="handleSave">
-            保存
+          <el-button class="top-element" icon="el-icon-plus" type="primary" size="small" @click="handleSave">
+            {{ lang('save') }}
           </el-button>
-          <el-button icon="el-icon-delete" type="danger" size="small" @click="handleReset">
-            重置
+          <el-button class="top-element" icon="el-icon-delete" type="danger" size="small" @click="handleReset">
+            {{ lang('reset') }}
           </el-button>
         </div>
       </el-col>
@@ -49,7 +49,7 @@
 <script>
 import hljs from 'vue-json-edit/node_modules/highlight.js'
 import { MenuCreate, MenuGetAll } from '@/api/etpmls-admin'
-import { successMessage } from '@/utils/etpmls-admin'
+import { successMessage, getlang } from '@/utils/etpmls-admin'
 export default {
   name: 'App',
   data: function() {
@@ -159,6 +159,9 @@ export default {
     },
     handleReset() {
       this.fetchData()
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }
@@ -183,12 +186,17 @@ export default {
     margin: 15px 0 0 0;
     font-weight: normal;
     text-align: center;
+    overflow: hidden;
   }
   .right-panel {
     float: right;
+    margin: 10px;
   }
   .left-panel {
     float: left;
-    margin: 0 0 20px;
+    margin: 10px;
+  }
+  .top-element {
+    margin: 5px !important;
   }
 </style>

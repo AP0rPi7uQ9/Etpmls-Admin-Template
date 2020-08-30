@@ -1,5 +1,9 @@
 export default {
   route: {
+    User: 'User',
+    Role: 'Role',
+    Permission: 'Permission',
+    Menu: 'Menu',
     dashboard: 'Dashboard',
     documentation: 'Documentation',
     guide: 'Guide',
@@ -173,12 +177,45 @@ export default {
     sidebarLogo: 'Sidebar Logo'
   },
   etpmls_admin: {
-    login: {
-      title: 'Etpmls-Admin',
-      username: 'Please enter the user name',
-      password: 'The password can not be less than 6 digits',
-      captcha: 'please enter verification code',
-      video_not_supported: 'The browser does not support the video tag. It is recommended to upgrade the browser'
+    add: 'Add',
+    edit: 'Edit',
+    save: 'Save',
+    reset: 'Reset',
+    operate: 'Operate',
+    warning: 'Warning',
+    user: 'User',
+    role: 'Role',
+    permission: 'Permission',
+    name: 'Name',
+    method: 'Method',
+    path: 'Path',
+    username: 'Username',
+    password: 'Password',
+    role_name: 'Role Name',
+    remark: 'Remark',
+    delete: 'Delete',
+    title: 'Title',
+    search: 'Search',
+    loading: 'Loading',
+    submit: 'Submit',
+    cancel: 'Cancel',
+    not_added: 'Not added',
+    added: 'Added',
+    etp_message: {
+      name_required: 'Please enter a name',
+      remark_required: 'Please enter a remark',
+      method_required: 'Please select at least one method',
+      path_required: 'Please enter the request path (wildcards are supported)',
+      video_not_supported: 'The browser does not support the video tag. It is recommended to upgrade the browser',
+      captcha_required: 'please enter verification code',
+      username_required: 'Please enter the user name',
+      password_required: 'The password can not be less than 6 digits',
+      password_max_length: 'The password length cannot be greater than 50 characters',
+      role_required: 'Please select at least one role',
+      menu_warning: 'Please configure this page carefully! Please consult relevant personnel before configuring for the first time, configuration errors will cause the background to fail to open!'
+    },
+    etp_variable: {
+      title: 'Etpmls-Admin'
     }
   }
 }

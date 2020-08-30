@@ -4,9 +4,9 @@
       <div :style="fixStyle" class="filter" />
       <video :style="fixStyle" autoplay loop class="fillWidth" @canplay="canplay">
         <source src="@/assets/etpmls-admin/login/login.mp4" type="video/mp4">
-        {{ $t('etpmls_admin.login.video_not_supported') }}
+        {{ lang('etp_message.video_not_supported') }}
         <source src="@/assets/etpmls-admin/login/login.mp4" type="video/webm">
-        {{ $t('etpmls_admin.login.video_not_supported') }}
+        {{ lang('etp_message.video_not_supported') }}
       </video>
       <div v-if="!vedioCanPlay" class="poster hidden">
         <img :style="fixStyle" src="@/assets/etpmls-admin/login/login.jpg" alt="">
@@ -17,7 +17,7 @@
 
           <div class="title-container">
             <h3 class="title">
-              {{ $t('etpmls_admin.login.title') }}
+              {{ lang('etp_variable.title') }}
             </h3>
             <lang-select class="set-language" />
           </div>
@@ -28,7 +28,7 @@
             </span>
             <el-input
               v-model="form.username"
-              :placeholder="$t('login.username')"
+              :placeholder="lang('username')"
               :maxlength="100"
               clearable
             />
@@ -39,7 +39,7 @@
             </span>
             <el-input
               v-model="form.password"
-              :placeholder="$t('login.password')"
+              :placeholder="lang('password')"
               :maxlength="255"
               clearable
               show-password
@@ -47,7 +47,7 @@
           </el-form-item>
 
           <el-form-item label-width="0" prop="captcha">
-            <el-input v-model="form.captcha" :placeholder="$t('etpmls_admin.login.captcha')" clearable />
+            <el-input v-model="form.captcha" :placeholder="lang('etp_message.captcha_required')" clearable />
           </el-form-item>
 
           <el-form-item label-width="0" prop="captchapic" style="background-color: #ffffff">
@@ -76,29 +76,30 @@
 <script>
 import LangSelect from '@/components/LangSelect'
 import { CaptchaGetOne } from '@/api/etpmls-admin'
+import { getlang } from '@/utils/etpmls-admin'
 export default {
   components: { LangSelect },
   props: [],
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (value.length < 1) {
-        callback(new Error(this.$t('etpmls_admin.login.username')))
-      } else {
+      if (value && value.length > 0) {
         callback()
+      } else {
+        callback(new Error(this.lang('etp_message.username_required')))
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
-        callback(new Error(this.$t('etpmls_admin.login.password')))
-      } else {
+      if (value && value.length >= 6) {
         callback()
+      } else {
+        callback(new Error(this.lang('etp_message.password_required')))
       }
     }
     const validateCaptcha = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error(this.$t('etpmls_admin.login.captcha')))
-      } else {
+      if (value && value.length > 0) {
         callback()
+      } else {
+        callback(new Error(this.lang('etp_message.captcha_required')))
       }
     }
     return {
@@ -194,6 +195,9 @@ export default {
           return false
         }
       })
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }

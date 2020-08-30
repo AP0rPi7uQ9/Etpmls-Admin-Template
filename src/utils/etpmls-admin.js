@@ -78,3 +78,7 @@ export function deleteConfirmMessage(_this, message, doThen) {
       console.error(err)
     })
 }
+
+export function getlang(_this, field) {
+  return _this.$t('etpmls_admin.' + field)
+}

@@ -1,5 +1,9 @@
 export default {
   route: {
+    User: '用户',
+    Role: '角色',
+    Permission: '权限',
+    Menu: '菜单',
     dashboard: '首页',
     documentation: '文档',
     guide: '引导页',
@@ -173,12 +177,45 @@ export default {
     sidebarLogo: '侧边栏 Logo'
   },
   etpmls_admin: {
-    login: {
-      title: 'Etpmls-Admin',
-      username: '请输入用户名!',
-      password: '密码不能少于6位字符!',
-      captcha: '请输入验证码',
-      video_not_supported: '浏览器不支持 video 标签，建议升级浏览器'
+    add: '添加',
+    edit: '编辑',
+    save: '保存',
+    reset: '重置',
+    operate: '操作',
+    warning: '警告',
+    user: '用户',
+    role: '角色',
+    permission: '权限',
+    name: '名称',
+    method: '方法',
+    path: '路径',
+    username: '用户名',
+    password: '密码',
+    role_name: '角色名',
+    remark: '备注',
+    delete: '删除',
+    title: '标题',
+    search: '搜索',
+    loading: '正在加载',
+    submit: '提交',
+    cancel: '取消',
+    not_added: '未添加',
+    added: '已添加',
+    etp_message: {
+      name_required: '请输入名称',
+      remark_required: '请输入备注',
+      method_required: '请至少选择一个方法',
+      path_required: '请输入请求路径（支持通配符）',
+      video_not_supported: '浏览器不支持 video 标签，建议升级浏览器',
+      captcha_required: '请输入验证码',
+      username_required: '请输入用户名!',
+      password_required: '密码不能少于6位字符!',
+      password_max_length: '密码长度不能大于50位',
+      role_required: '请至少选择一个角色',
+      menu_warning: '请谨慎配置本页面！第一次配置前请先向相关人员请教，配置错误将会导致后台无法打开！'
+    },
+    etp_variable: {
+      title: 'Etpmls-Admin'
     }
   }
 }

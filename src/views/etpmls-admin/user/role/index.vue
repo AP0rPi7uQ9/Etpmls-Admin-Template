@@ -2,11 +2,11 @@
   <div class="app-container">
     <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
       <div class="left-panel">
-        <el-button icon="el-icon-plus" type="primary" size="small" @click="handleAdd">
-          添加
+        <el-button class="top-element" icon="el-icon-plus" type="primary" size="small" @click="handleAdd">
+          {{ lang('add') }}
         </el-button>
-        <el-button icon="el-icon-delete" type="danger" size="small" @click="handleDelete">
-          删除
+        <el-button class="top-element" icon="el-icon-delete" type="danger" size="small" @click="handleDelete">
+          {{ lang('delete') }}
         </el-button>
       </div>
     </el-col>
@@ -20,17 +20,18 @@
           @submit.native.prevent
         >
           <el-form-item>
-            <el-input v-model="queryForm.search" size="small" placeholder="标题" />
+            <el-input v-model="queryForm.search" class="top-element" size="small" :placeholder="lang('title')" />
           </el-form-item>
           <el-form-item>
             <el-button
               icon="el-icon-search"
               type="primary"
+              class="top-element"
               native-type="submit"
               size="small"
               @click="handleQuery"
             >
-              查询
+              {{ lang('search') }}
             </el-button>
           </el-form-item>
         </el-form>
@@ -41,7 +42,7 @@
       ref="tableSort"
       v-loading="listLoading"
       :data="list"
-      :element-loading-text="elementLoadingText"
+      :element-loading-text="lang('loading') + '...'"
       @selection-change="setSelectRows"
       @sort-change="tableSortChange"
     >
@@ -58,23 +59,22 @@
       <el-table-column
         show-overflow-tooltip
         prop="name"
-        label="角色名"
+        :label="lang('role_name')"
       />
       <el-table-column
         show-overflow-tooltip
-        label="备注"
+        :label="lang('remark')"
         prop="remark"
       />
       <el-table-column
         show-overflow-tooltip
-        label="操作"
+        :label="lang('operate')"
         width="180px"
-        fixed="right"
       >
         <template slot-scope="scope">
-          <el-button type="text" @click="handleEdit(scope.row)">编辑</el-button>
+          <el-button type="text" @click="handleEdit(scope.row)">{{ lang('edit') }}</el-button>
           <el-button type="text" @click="handleDelete(scope.row)">
-            删除
+            {{ lang('delete') }}
           </el-button>
         </template>
       </el-table-column>
@@ -99,7 +99,7 @@
 <script>
 import { RoleGetAll, RoleDelete } from '@/api/etpmls-admin'
 import TableEdit from './components/TableEdit'
-import { successMessage, errorTextMessage, deleteConfirmMessage } from '@/utils/etpmls-admin'
+import { successMessage, errorTextMessage, deleteConfirmMessage, getlang } from '@/utils/etpmls-admin'
 export default {
   name: 'ComprehensiveTable',
   components: {
@@ -125,7 +125,6 @@ export default {
       total: 0,
       background: true,
       selectRows: '',
-      elementLoadingText: '正在加载...',
       queryForm: {
         pageNo: 1,
         pageSize: 20,
@@ -205,6 +204,9 @@ export default {
       setTimeout(() => {
         this.listLoading = false
       }, 500)
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }
@@ -225,11 +227,23 @@ export default {
     margin: 15px 0 0 0;
     font-weight: normal;
     text-align: center;
+    overflow: hidden;
   }
   .right-panel {
     float: right;
+    margin: 10px;
   }
   .left-panel {
     float: left;
+    margin: 10px;
+  }
+  .top-element {
+    margin: 5px !important;
+  }
+</style>
+
+<style>
+  .el-transfer__buttons {
+    margin: 10px;
   }
 </style>

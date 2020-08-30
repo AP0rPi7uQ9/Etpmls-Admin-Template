@@ -12,12 +12,12 @@
         :model="form"
         :rules="rules"
         size="medium"
-        label-width="80px"
+        label-width="100px"
       >
-        <el-form-item label="名称" prop="name">
+        <el-form-item :label="lang('name')" prop="name">
           <el-input
             v-model="form.name"
-            placeholder="请输入角色名称"
+            :placeholder="lang('etp_message.username_required')"
             :maxlength="30"
             show-word-limit
             clearable
@@ -25,22 +25,22 @@
             :style="{ width: '100%' }"
           />
         </el-form-item>
-        <el-form-item label="备注" prop="remark">
+        <el-form-item :label="lang('remark')" prop="remark">
           <el-input
             v-model="form.remark"
             type="textarea"
-            placeholder="请输入备注"
+            :placeholder="lang('etp_message.remark_required')"
             :maxlength="200"
             show-word-limit
             :autosize="{ minRows: 4, maxRows: 4 }"
             :style="{ width: '100%' }"
           />
         </el-form-item>
-        <el-form-item label="权限" prop="permissions">
+        <el-form-item :label="lang('permission')" prop="permissions">
           <el-transfer
             v-model="form.permissions"
             :data="allPermission"
-            :titles="['未添加权限', '已添加权限']"
+            :titles="[lang('not_added'), lang('added')]"
             :props="{
               key: 'id',
               label: 'name',
@@ -49,15 +49,15 @@
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button @click="close">取消</el-button>
-        <el-button type="primary" @click="handelConfirm">确定</el-button>
+        <el-button @click="close">{{ lang('cancel') }}</el-button>
+        <el-button type="primary" @click="handelConfirm">{{ lang('submit') }}</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <script>
 import { RoleCreate, RoleEdit, PermissionGetAll } from '@/api/etpmls-admin'
-import { successMessage } from '@/utils/etpmls-admin'
+import { successMessage, getlang } from '@/utils/etpmls-admin'
 const emptyForm = {
   name: undefined,
   remark: undefined,
@@ -69,6 +69,13 @@ export default {
   inheritAttrs: false,
   props: [],
   data() {
+    const validateName = (rule, value, callback) => {
+      if (value && value.length > 0) {
+        callback()
+      } else {
+        callback(new Error(this.lang('etp_message.name_required')))
+      }
+    }
     return {
       form: {
         name: undefined,
@@ -79,8 +86,8 @@ export default {
         name: [
           {
             required: true,
-            message: '请输入角色名称',
-            trigger: 'blur'
+            trigger: 'blur',
+            validator: validateName
           }
         ],
         remark: []
@@ -131,10 +138,10 @@ export default {
     },
     showEdit(row) {
       if (!row) {
-        this.title = '添加角色'
+        this.title = this.lang('add') + ' ' + this.lang('role')
         this.isEdit = false
       } else {
-        this.title = '编辑角色'
+        this.title = this.lang('edit') + ' ' + this.lang('role')
         this.isEdit = true
         this.form = Object.assign({}, row)
         if (!row.permissions) {
@@ -161,7 +168,16 @@ export default {
         }
         this.form.permissions = tmp
       }
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }
 </script>
+
+<style>
+  .el-dialog {
+    min-width: 800px;
+  }
+</style>

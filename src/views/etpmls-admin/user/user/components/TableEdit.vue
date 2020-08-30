@@ -12,12 +12,12 @@
         :model="form"
         :rules="rules"
         size="medium"
-        label-width="80px"
+        label-width="100px"
       >
-        <el-form-item label="用户名" prop="username">
+        <el-form-item :label="lang('username')" prop="username">
           <el-input
             v-model="form.username"
-            placeholder="请输入用户名"
+            :placeholder="lang('etp_message.username_required')"
             :maxlength="50"
             show-word-limit
             clearable
@@ -25,10 +25,10 @@
             :style="{ width: '100%' }"
           />
         </el-form-item>
-        <el-form-item label="密码" prop="password" :required="isEdit === false">
+        <el-form-item :label="lang('password')" prop="password" :required="isEdit === false">
           <el-input
             v-model="form.password"
-            placeholder="请输入密码"
+            :placeholder="lang('etp_message.password_required')"
             :maxlength="50"
             clearable
             prefix-icon="el-icon-lock"
@@ -36,7 +36,7 @@
             :style="{ width: '100%' }"
           />
         </el-form-item>
-        <el-form-item label="角色" prop="roles">
+        <el-form-item :label="lang('role')" prop="roles">
           <el-checkbox-group v-model="form.roles" size="medium">
             <el-checkbox
               v-for="(item, index) in rolesOptions"
@@ -50,15 +50,15 @@
         </el-form-item>
       </el-form>
       <div slot="footer">
-        <el-button @click="close">取消</el-button>
-        <el-button type="primary" @click="handelConfirm">确定</el-button>
+        <el-button @click="close">{{ lang('cancel') }}</el-button>
+        <el-button type="primary" @click="handelConfirm">{{ lang('submit') }}</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <script>
 import { RoleGetAll, UserCreate, UserEdit } from '@/api/etpmls-admin'
-import { successMessage } from '@/utils/etpmls-admin'
+import { successMessage, getlang } from '@/utils/etpmls-admin'
 export default {
   components: {},
   inheritAttrs: false,
@@ -66,13 +66,27 @@ export default {
   data() {
     var checkPassword = (rule, value, callback) => {
       // 修改时对密码没有要求
-      if (!value && !this.isEdit) {
-        return callback(new Error('密码不能为空！'))
+      if ((!value && !this.isEdit) || (value && value.length < 6)) {
+        return callback(new Error(this.lang('etp_message.password_required')))
       }
       if (value && value.length > 50) {
-        return callback(new Error('密码长度不能大于50位！'))
+        return callback(new Error(this.lang('etp_message.password_max_length')))
       } else {
         callback()
+      }
+    }
+    const validateUsername = (rule, value, callback) => {
+      if (value && value.length > 0) {
+        callback()
+      } else {
+        callback(new Error(this.lang('etp_message.username_required')))
+      }
+    }
+    const validateRole = (rule, value, callback) => {
+      if (value && value.length > 0) {
+        callback()
+      } else {
+        callback(new Error(this.lang('etp_message.role_required')))
       }
     }
     return {
@@ -85,8 +99,8 @@ export default {
         username: [
           {
             required: true,
-            message: '请输入用户名',
-            trigger: 'blur'
+            trigger: 'blur',
+            validator: validateUsername
           }
         ],
         password: [
@@ -99,8 +113,8 @@ export default {
           {
             required: true,
             type: 'array',
-            message: '请至少选择一个角色',
-            trigger: 'change'
+            trigger: 'change',
+            validator: validateRole
           }
         ]
       },
@@ -137,10 +151,10 @@ export default {
     },
     showEdit(row) {
       if (!row) {
-        this.title = '添加用户'
+        this.title = this.lang('add') + ' ' + this.lang('user')
         this.isEdit = false
       } else {
-        this.title = '编辑用户'
+        this.title = this.lang('edit') + ' ' + this.lang('user')
         this.isEdit = true
         this.form = Object.assign({}, row)
         // 初始化roles，防止roles为null报错
@@ -176,7 +190,16 @@ export default {
       successMessage(this, '成功', message)
       this.close()
       this.$emit('refreshTable', true)
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }
 </script>
+
+<style>
+  .el-dialog {
+    min-width: 500px;
+  }
+</style>
