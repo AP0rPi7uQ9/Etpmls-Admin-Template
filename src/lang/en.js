@@ -203,6 +203,9 @@ export default {
     cancel: 'Cancel',
     success: 'Success',
     version_information: 'Version Information',
+    basic_information: 'Basic Information',
+    about_me: 'About Me',
+    avatar: 'Avatar',
     etp_message: {
       name_required: 'Please enter a name',
       remark_required: 'Please enter a remark',

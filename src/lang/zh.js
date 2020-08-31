@@ -203,6 +203,9 @@ export default {
     cancel: '取消',
     success: '成功',
     version_information: '版本信息',
+    basic_information: '基本资料',
+    about_me: '关于我',
+    avatar: '头像',
     etp_message: {
       name_required: '请输入名称',
       remark_required: '请输入备注',

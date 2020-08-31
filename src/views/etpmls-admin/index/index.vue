@@ -1,53 +1,55 @@
 <template>
   <div class="app-container">
-    <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <el-card class="card" shadow="never">
-          <div slot="header">
-            <span>{{ lang('version_information') }}</span>
-            <div style="float: right;">Etpmls-Admin</div>
-          </div>
-          <table class="table">
-            <tr>
-              <td>Database</td>
-              <td>go-gorm/gorm v2.x</td>
-              <td>Captcha</td>
-              <td>dchest/captcha</td>
-            </tr>
-            <tr>
-              <td>Env</td>
-              <td>joho/godotenv</td>
-              <td>JWT Token</td>
-              <td>dgrijalva/jwt-go v3.2.0</td>
-            </tr>
-            <tr>
-              <td>Log</td>
-              <td>sirupsen/logrus v1.5.0</td>
-              <td>Log cutting</td>
-              <td>natefinch/lumberjack.v2 v2.0.0</td>
-            </tr>
-            <tr>
-              <td>Yaml</td>
-              <td>go-yaml/yaml v2.2.8</td>
-              <td>UUID</td>
-              <td>google/uuid v1.1.1</td>
-            </tr>
-            <tr>
-              <td>Redis</td>
-              <td>go-redis/redis v8.0.0-beta.3</td>
-              <td>Validate</td>
-              <td>go-playground/validator v10.2.0</td>
-            </tr>
-            <tr>
-              <td>Web frame</td>
-              <td>gin-gonic/gin v1.6.1</td>
-              <td>Cors</td>
-              <td>gin-contrib/cors v1.3.1</td>
-            </tr>
-          </table>
-        </el-card>
-      </el-col>
-    </el-row>
+    <el-scrollbar>
+      <el-row :gutter="20" style="min-width: 800px">
+        <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+          <el-card class="card" shadow="never">
+            <div slot="header">
+              <span>{{ lang('version_information') }}</span>
+              <div style="float: right;">Etpmls-Admin</div>
+            </div>
+            <table class="table">
+              <tr>
+                <td>Database</td>
+                <td>go-gorm/gorm v2.x</td>
+                <td>Captcha</td>
+                <td>dchest/captcha</td>
+              </tr>
+              <tr>
+                <td>Env</td>
+                <td>joho/godotenv</td>
+                <td>JWT Token</td>
+                <td>dgrijalva/jwt-go v3.2.0</td>
+              </tr>
+              <tr>
+                <td>Log</td>
+                <td>sirupsen/logrus v1.5.0</td>
+                <td>Log cutting</td>
+                <td>natefinch/lumberjack.v2 v2.0.0</td>
+              </tr>
+              <tr>
+                <td>Yaml</td>
+                <td>go-yaml/yaml v2.2.8</td>
+                <td>UUID</td>
+                <td>google/uuid v1.1.1</td>
+              </tr>
+              <tr>
+                <td>Redis</td>
+                <td>go-redis/redis v8.0.0-beta.3</td>
+                <td>Validate</td>
+                <td>go-playground/validator v10.2.0</td>
+              </tr>
+              <tr>
+                <td>Web frame</td>
+                <td>gin-gonic/gin v1.6.1</td>
+                <td>Cors</td>
+                <td>gin-contrib/cors v1.3.1</td>
+              </tr>
+            </table>
+          </el-card>
+        </el-col>
+      </el-row>
+    </el-scrollbar>
   </div>
 </template>
 
