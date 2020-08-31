@@ -178,6 +178,8 @@ export default {
   },
   etpmls_admin: {
     add: 'Add',
+    not_added: 'Not added',
+    added: 'Added',
     edit: 'Edit',
     save: 'Save',
     reset: 'Reset',
@@ -199,8 +201,8 @@ export default {
     loading: 'Loading',
     submit: 'Submit',
     cancel: 'Cancel',
-    not_added: 'Not added',
-    added: 'Added',
+    success: 'Success',
+    version_information: 'Version Information',
     etp_message: {
       name_required: 'Please enter a name',
       remark_required: 'Please enter a remark',
@@ -212,7 +214,11 @@ export default {
       password_required: 'The password can not be less than 6 digits',
       password_max_length: 'The password length cannot be greater than 50 characters',
       role_required: 'Please select at least one role',
-      menu_warning: 'Please configure this page carefully! Please consult relevant personnel before configuring for the first time, configuration errors will cause the background to fail to open!'
+      menu_warning: 'Please configure this page carefully! Please consult relevant personnel before configuring for the first time, configuration errors will cause the background to fail to open!',
+      delete_current_item: 'Are you sure you want to delete the current item',
+      delete_selected_item: 'Are you sure you want to delete the selected item',
+      no_rows_selected: 'No rows selected',
+      confirm_close: 'Confirm to close?'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

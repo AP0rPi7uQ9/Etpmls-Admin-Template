@@ -1,48 +1,48 @@
 <template>
   <div class="app-container">
-    <el-row>
-      <el-alert
-        :title="lang('warning')"
-        type="warning"
-        :description="lang('etp_message.menu_warning')"
-        show-icon
-        style="margin-bottom: 2rem;"
-      />
-      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-        <div class="left-panel">
-          <el-button class="top-element" icon="el-icon-plus" type="primary" size="small" @click="handleSave">
-            {{ lang('save') }}
-          </el-button>
-          <el-button class="top-element" icon="el-icon-delete" type="danger" size="small" @click="handleReset">
-            {{ lang('reset') }}
-          </el-button>
-        </div>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-        <JsonEditor
-          v-model="jsonData"
-          :options="{
-            confirmText: 'confirm',
-            cancelText: 'cancel',
-          }"
-          :obj-data="jsonData"
+    <el-scrollbar>
+      <el-row>
+        <el-alert
+          :title="lang('warning')"
+          type="warning"
+          :description="lang('etp_message.menu_warning')"
+          show-icon
         />
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-        <div class="w-2">
-          <div class="code-pre">
-            <div slot="content">
-              <pre>
+        <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
+          <div class="left-panel">
+            <el-button class="top-element" icon="el-icon-plus" type="primary" size="small" @click="handleSave">
+              {{ lang('save') }}
+            </el-button>
+            <el-button class="top-element" icon="el-icon-delete" type="danger" size="small" @click="handleReset">
+              {{ lang('reset') }}
+            </el-button>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20" style="min-width: 1500px">
+        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+          <JsonEditor
+            v-model="jsonData"
+            :options="{
+              confirmText: 'confirm',
+              cancelText: 'cancel',
+            }"
+            :obj-data="jsonData"
+          />
+        </el-col>
+        <el-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+          <div class="w-2">
+            <div class="code-pre">
+              <div slot="content">
+                <pre>
             <code id="res_code" class="json" />
           </pre>
+              </div>
             </div>
           </div>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -154,7 +154,7 @@ export default {
     async handleSave() {
       var menuJson = JSON.stringify(this.jsonData.data)
       const { message } = await MenuCreate({ menu: menuJson })
-      successMessage(this, '成功', message)
+      successMessage(this, this.lang('success'), message)
       this.fetchData()
     },
     handleReset() {

@@ -178,6 +178,8 @@ export default {
   },
   etpmls_admin: {
     add: '添加',
+    not_added: '未添加',
+    added: '已添加',
     edit: '编辑',
     save: '保存',
     reset: '重置',
@@ -199,8 +201,8 @@ export default {
     loading: '正在加载',
     submit: '提交',
     cancel: '取消',
-    not_added: '未添加',
-    added: '已添加',
+    success: '成功',
+    version_information: '版本信息',
     etp_message: {
       name_required: '请输入名称',
       remark_required: '请输入备注',
@@ -212,7 +214,11 @@ export default {
       password_required: '密码不能少于6位字符!',
       password_max_length: '密码长度不能大于50位',
       role_required: '请至少选择一个角色',
-      menu_warning: '请谨慎配置本页面！第一次配置前请先向相关人员请教，配置错误将会导致后台无法打开！'
+      menu_warning: '请谨慎配置本页面！第一次配置前请先向相关人员请教，配置错误将会导致后台无法打开！',
+      delete_current_item: '你确定要删除当前项吗',
+      delete_selected_item: '你确定要删除选中项吗',
+      no_rows_selected: '未选中任何行',
+      confirm_close: '确认关闭?'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

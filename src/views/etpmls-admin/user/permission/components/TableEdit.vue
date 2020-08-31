@@ -3,6 +3,7 @@
     <el-dialog
       v-bind="$attrs"
       :title="title"
+      :before-close="handleClose"
       v-on="$listeners"
       @open="onOpen"
       @close="onClose"
@@ -193,13 +194,13 @@ export default {
     },
     async PermissionCreate() {
       const { message } = await PermissionCreate(this.form)
-      successMessage(this, '成功', message)
+      successMessage(this, this.lang('success'), message)
       this.close()
       this.$emit('refreshTable', true)
     },
     async PermissionEdit() {
       const { message } = await PermissionEdit(this.form)
-      successMessage(this, '成功', message)
+      successMessage(this, this.lang('success'), message)
       this.close()
       this.$emit('refreshTable', true)
     },
@@ -217,6 +218,13 @@ export default {
     },
     lang(field) {
       return getlang(this, field)
+    },
+    handleClose(done) {
+      this.$confirm(this.lang('etp_message.confirm_close'))
+        .then(_ => {
+          done()
+        })
+        .catch(_ => {})
     }
   }
 }

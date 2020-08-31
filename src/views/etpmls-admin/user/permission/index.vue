@@ -169,23 +169,23 @@ export default {
     },
     handleDelete(row) {
       if (row.id) {
-        deleteConfirmMessage(this, '你确定要删除当前项吗', async() => {
+        deleteConfirmMessage(this, this.lang('etp_message.delete_current_item'), async() => {
           const { message } = await PermissionDelete({
             permissions: [{ id: row.id }]
           })
-          successMessage(this, '成功', message)
+          successMessage(this, this.lang('success'), message)
           this.fetchData()
         })
       } else {
         if (this.selectRows.length > 0) {
           const ids = this.selectRows.map((item) => item)
-          deleteConfirmMessage(this, '你确定要删除选中项吗', async() => {
+          deleteConfirmMessage(this, this.lang('etp_message.delete_selected_item'), async() => {
             const { message } = await PermissionDelete({ permissions: ids })
-            successMessage(this, '成功', message)
+            successMessage(this, this.lang('success'), message)
             this.fetchData()
           })
         } else {
-          errorTextMessage(this, '未选中任何行')
+          errorTextMessage(this, this.lang('etp_message.no_rows_selected'))
           return false
         }
       }
