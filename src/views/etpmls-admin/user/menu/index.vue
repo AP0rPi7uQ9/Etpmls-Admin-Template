@@ -172,31 +172,20 @@ export default {
 </style>
 
 <style>
-  .app-main {
-    background-color: #f6f8f9;
-  }
-  .app-container {
-    padding: 20px;
-    margin: 20px 20px ;
-    background: #fff;
-    border-radius: 2px;
-  }
-  .el-pagination {
-    padding: 2px 5px;
-    margin: 15px 0 0 0;
-    font-weight: normal;
-    text-align: center;
-    overflow: hidden;
-  }
-  .right-panel {
-    float: right;
-    margin: 10px;
-  }
   .left-panel {
     float: left;
     margin: 10px;
   }
   .top-element {
     margin: 5px !important;
+  }
+</style>
+
+<style scoped>
+  .app-container {
+    padding: 20px;
+    margin: 20px 20px ;
+    background: #fff;
+    border-radius: 2px;
   }
 </style>

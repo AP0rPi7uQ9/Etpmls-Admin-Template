@@ -20,7 +20,7 @@
         />
       </el-form-item>
       <el-form-item :label="lang('avatar')" prop="avatar">
-        <avatar :value="user.avatar" />
+        <avatar :value.sync="form.avatar" />
       </el-form-item>
       <el-form-item size="large">
         <el-button type="primary" @click="submitForm">{{ lang('submit') }}</el-button>
@@ -29,7 +29,8 @@
   </div>
 </template>
 <script>
-import { getlang } from '@/utils/etpmls-admin'
+import { UserUpdateInformation } from '@/api/etpmls-admin'
+import { successMessage, getlang } from '@/utils/etpmls-admin'
 import Avatar from '@/components/Etpmls-Admin/avatar'
 export default {
   components: { Avatar },
@@ -60,8 +61,8 @@ export default {
     }
     return {
       form: {
-        username: undefined,
-        password: ''
+        password: '',
+        avatar: this.user.avatar === undefined ? Object.assign({}) : Object.assign({ path: this.user.avatar })
       },
       rules: {
         username: [],
@@ -82,7 +83,7 @@ export default {
     submitForm() {
       this.$refs['form'].validate(valid => {
         if (!valid) return
-        // TODO 提交表单
+        this.UserUpdateInformation()
       })
     },
     resetForm() {
@@ -90,6 +91,10 @@ export default {
     },
     lang(field) {
       return getlang(this, field)
+    },
+    async UserUpdateInformation() {
+      const { message } = await UserUpdateInformation(this.form)
+      successMessage(this, this.lang('success'), message)
     }
   }
 }

@@ -66,12 +66,8 @@ export default {
 </script>
 
 <style>
-  .app-main {
-    background-color: #f6f8f9;
-  }
   .app-container {
     padding: 20px;
-    margin: 20px 20px ;
     background: #fff;
     border-radius: 2px;
   }
@@ -97,8 +93,6 @@ export default {
 
 <style lang="scss" scoped>
   .app-container {
-    padding: 0 !important;
-    margin: 0 !important;
     background: #f5f7f8 !important;
 
   .card {

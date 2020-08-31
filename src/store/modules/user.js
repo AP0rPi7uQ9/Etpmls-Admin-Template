@@ -56,6 +56,13 @@ const actions = {
 
         const { roles, username, avatar, introduction } = data
 
+        var a
+        if (avatar && avatar.length > 0) {
+          a = '/' + avatar
+        } else {
+          a = avatar
+        }
+
         // roles must be a non-empty array
         if (!roles || roles.length <= 0) {
           reject('getInfo: roles must be a non-null array!')
@@ -63,7 +70,7 @@ const actions = {
 
         commit('SET_ROLES', roles)
         commit('SET_USERNAME', username)
-        commit('SET_AVATAR', avatar)
+        commit('SET_AVATAR', a)
         commit('SET_INTRODUCTION', introduction)
         resolve(data)
       }).catch(error => {

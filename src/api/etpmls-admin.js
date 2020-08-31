@@ -95,6 +95,14 @@ export function UserDelete(data) {
   })
 }
 
+export function UserUpdateInformation(data) {
+  return request({
+    url: '/user/updateInformation',
+    method: 'put',
+    data
+  })
+}
+
 export function MenuGetAll() {
   return request({
     url: '/menu/getAll',

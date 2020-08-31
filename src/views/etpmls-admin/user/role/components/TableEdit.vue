@@ -21,7 +21,8 @@
             :placeholder="lang('etp_message.username_required')"
             :maxlength="30"
             show-word-limit
-            clearable
+            :readonly="form.id === 1"
+            :clearable="form.id !== 1"
             prefix-icon="el-icon-user"
             :style="{ width: '100%' }"
           />

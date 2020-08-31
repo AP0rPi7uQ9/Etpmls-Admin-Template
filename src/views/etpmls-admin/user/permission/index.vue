@@ -220,9 +220,20 @@ export default {
 </script>
 
 <style>
-  .app-main {
-    background-color: #f6f8f9;
+  .right-panel {
+    float: right;
+    margin: 10px;
   }
+  .left-panel {
+    float: left;
+    margin: 10px;
+  }
+  .top-element {
+    margin: 5px !important;
+  }
+</style>
+
+<style scoped>
   .app-container {
     padding: 20px;
     margin: 20px 20px ;
@@ -236,15 +247,5 @@ export default {
     text-align: center;
     overflow: hidden;
   }
-  .right-panel {
-    float: right;
-    margin: 10px;
-  }
-  .left-panel {
-    float: left;
-    margin: 10px;
-  }
-  .top-element {
-    margin: 5px !important;
-  }
 </style>
+

@@ -7,7 +7,7 @@
     :before-upload="beforeAvatarUpload"
     :headers="headers"
   >
-    <img v-if="imageUrl" :src="imageUrl" class="avatar" alt="">
+    <img v-if="imageUrl" :src="imageUrl" class="avatar">
     <i v-else class="el-icon-plus avatar-uploader-icon" />
     <div slot="tip" class="el-upload__tip">
       只能上传不超过 200KB 的jpg格式的文件
@@ -46,25 +46,33 @@ import { getToken } from '@/utils/auth' // get token from cookie
 export default {
   props: {
     value: {
-      type: String,
+      type: Object,
       default: () => {
-        return ''
+        return {
+          path: undefined
+        }
       }
     }
   },
   data() {
     return {
-      imageUrl: this.value,
+      image: this.value,
+      imageUrl: '',
       avatarAction: process.env.VUE_APP_BASE_API + '/attachment/uploadImage',
       headers: {}
     }
   },
   created() {
     this.setUploadHeader()
+    if (this.image.path) {
+      this.imageUrl = this.image.path
+    }
+    console.log(this.image)
   },
   methods: {
     handleAvatarSuccess(res, file) {
-      this.imageUrl = URL.createObjectURL(file.raw)
+      this.imageUrl = '/' + res.data.path
+      this.$emit('update:value', { path: res.data.path })
     },
     beforeAvatarUpload(file) {
       const isJPG = file.type === 'image/jpeg'

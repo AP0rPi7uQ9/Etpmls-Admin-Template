@@ -55,7 +55,7 @@ const actions = {
         const { data } = response
         data.push({ path: '*', redirect: '/404', hidden: true })
         let accessedRoutes
-        if (roles.includes('admin')) {
+        if (roles.includes('Administrator')) {
           accessedRoutes = data || []
         } else {
           accessedRoutes = filterAsyncRoutes(data, roles)
