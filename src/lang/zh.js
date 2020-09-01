@@ -221,7 +221,10 @@ export default {
       delete_current_item: '你确定要删除当前项吗',
       delete_selected_item: '你确定要删除选中项吗',
       no_rows_selected: '未选中任何行',
-      confirm_close: '确认关闭?'
+      confirm_close: '确认关闭?',
+      no_more_than_200kb_jpg: '只能上传不超过 200KB 的jpg格式的文件',
+      uploaded_only_jpg: '上传头像图片只能是 JPG 格式!',
+      cannot_exceed_200kb_jpg: '上传头像图片大小不能超过 200KB!'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

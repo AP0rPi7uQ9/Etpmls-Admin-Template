@@ -221,7 +221,10 @@ export default {
       delete_current_item: 'Are you sure you want to delete the current item',
       delete_selected_item: 'Are you sure you want to delete the selected item',
       no_rows_selected: 'No rows selected',
-      confirm_close: 'Confirm to close?'
+      confirm_close: 'Confirm to close?',
+      no_more_than_200kb_jpg: 'Only upload files in jpg format that do not exceed 200KB',
+      uploaded_only_jpg: 'The uploaded profile picture can only be in JPG format!',
+      cannot_exceed_200kb_jpg: 'The size of the uploaded profile picture cannot exceed 200KB!'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

@@ -10,7 +10,7 @@
     <img v-if="imageUrl" :src="imageUrl" class="avatar">
     <i v-else class="el-icon-plus avatar-uploader-icon" />
     <div slot="tip" class="el-upload__tip">
-      只能上传不超过 200KB 的jpg格式的文件
+      {{ lang('etp_message.no_more_than_200kb_jpg') }}
     </div>
   </el-upload>
 </template>
@@ -43,6 +43,7 @@
 
 <script>
 import { getToken } from '@/utils/auth' // get token from cookie
+import { getlang } from '@/utils/etpmls-admin'
 export default {
   props: {
     value: {
@@ -90,6 +91,9 @@ export default {
       if (getToken()) {
         this.headers['token'] = getToken()
       }
+    },
+    lang(field) {
+      return getlang(this, field)
     }
   }
 }

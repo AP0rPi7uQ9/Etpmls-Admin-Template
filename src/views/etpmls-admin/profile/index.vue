@@ -63,3 +63,8 @@ export default {
 }
 </script>
 
+<style scoped>
+  .app-container {
+    background: none;
+  }
+</style>
