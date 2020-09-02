@@ -9,7 +9,7 @@
         <pan-thumb v-if="user.avatar === ''" image="/static/images/nopic.png" :height="'100px'" :width="'100px'" :hoverable="false">
           <div>Hello</div>
         </pan-thumb>
-        <pan-thumb v-else :image="user.avatar" :height="'100px'" :width="'100px'" :hoverable="false">
+        <pan-thumb v-else :image="getBaseUrl() + user.avatar" :height="'100px'" :width="'100px'" :hoverable="false">
           <div>Hello</div>
         </pan-thumb>
       </div>
@@ -24,7 +24,7 @@
 
 <script>
 import PanThumb from '@/components/PanThumb'
-import { getlang } from '@/utils/etpmls-admin'
+import { getlang, getBaseUrl } from '@/utils/etpmls-admin'
 
 export default {
   components: { PanThumb },
@@ -44,6 +44,9 @@ export default {
   methods: {
     lang(field) {
       return getlang(this, field)
+    },
+    getBaseUrl() {
+      return getBaseUrl()
     }
   }
 }

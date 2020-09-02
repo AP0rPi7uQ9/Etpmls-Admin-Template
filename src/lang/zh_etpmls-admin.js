@@ -1,9 +1,10 @@
 export default {
   'route_etpmls-admin': {
-    User: '用户',
-    Role: '角色',
-    Permission: '权限',
-    Menu: '菜单'
+    admin: 'Admin',
+    user: '用户',
+    role: '角色',
+    permission: '权限',
+    menu: '菜单'
   },
   'etpmls-admin': {
     add: '添加',

@@ -1,9 +1,10 @@
 export default {
   'route_etpmls-admin': {
-    User: 'User',
-    Role: 'Role',
-    Permission: 'Permission',
-    Menu: 'Menu'
+    admin: 'Admin',
+    user: 'User',
+    role: 'Role',
+    permission: 'Permission',
+    menu: 'Menu'
   },
   'etpmls-admin': {
     add: 'Add',
