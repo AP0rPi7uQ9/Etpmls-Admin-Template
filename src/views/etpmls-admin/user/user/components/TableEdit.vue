@@ -58,8 +58,8 @@
   </div>
 </template>
 <script>
-import { RoleGetAll, UserCreate, UserEdit } from '@/api/etpmls-admin'
-import { successMessage, getlang } from '@/utils/etpmls-admin'
+import { RoleGetAll, UserCreate, UserEdit } from '@/api/Etpmls-Admin'
+import { successMessage, getlang } from '@/utils/Etpmls-Admin'
 export default {
   components: {},
   inheritAttrs: false,

@@ -42,8 +42,8 @@
 </style>
 
 <script>
-import { getToken } from '@/utils/auth' // get token from cookie
-import { getlang } from '@/utils/etpmls-admin'
+import { getUserToken } from '@/utils/Etpmls-Admin' // get token from cookie
+import { getlang } from '@/utils/Etpmls-Admin'
 export default {
   props: {
     value: {
@@ -88,8 +88,8 @@ export default {
       return isJPG && isLt2M
     },
     setUploadHeader() {
-      if (getToken()) {
-        this.headers['token'] = getToken()
+      if (getUserToken()) {
+        this.headers['token'] = getUserToken()
       }
     },
     lang(field) {

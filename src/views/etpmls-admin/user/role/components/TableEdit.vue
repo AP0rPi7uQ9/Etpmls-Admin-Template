@@ -58,8 +58,8 @@
   </div>
 </template>
 <script>
-import { RoleCreate, RoleEdit, PermissionGetAll } from '@/api/etpmls-admin'
-import { successMessage, getlang } from '@/utils/etpmls-admin'
+import { RoleCreate, RoleEdit, PermissionGetAll } from '@/api/Etpmls-Admin'
+import { successMessage, getlang } from '@/utils/Etpmls-Admin'
 const emptyForm = {
   name: undefined,
   remark: undefined,

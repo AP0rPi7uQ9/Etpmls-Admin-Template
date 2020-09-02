@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getToken } from '@/utils/auth'
+import { getUserToken } from '@/utils/Etpmls-Admin'
 import Editor from '@tinymce/tinymce-vue'
 // Import TinyMCE
 import tinymce from 'tinymce/tinymce'
@@ -84,7 +84,7 @@ export default {
           xhr = new XMLHttpRequest()
           xhr.withCredentials = false
           xhr.open('POST', process.env.VUE_APP_BASE_API + '/attachment/uploadImage')
-          xhr.setRequestHeader('token', getToken())
+          xhr.setRequestHeader('token', getUserToken())
 
           xhr.upload.onprogress = function(e) {
             progress((e.loaded / e.total) * 100)

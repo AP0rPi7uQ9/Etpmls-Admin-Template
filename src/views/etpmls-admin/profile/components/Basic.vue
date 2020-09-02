@@ -29,8 +29,8 @@
   </div>
 </template>
 <script>
-import { UserUpdateInformation } from '@/api/etpmls-admin'
-import { successMessage, getlang } from '@/utils/etpmls-admin'
+import { UserUpdateInformation } from '@/api/Etpmls-Admin'
+import { successMessage, getlang } from '@/utils/Etpmls-Admin'
 import Avatar from '@/components/Etpmls-Admin/avatar'
 export default {
   components: { Avatar },

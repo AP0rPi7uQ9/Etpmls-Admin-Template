@@ -156,3 +156,10 @@ export function CaptchaGetOne() {
     method: 'get'
   })
 }
+
+/**
+ * @return {string}
+ */
+export function CaptchaGetPicture(data) {
+  return '/api/v3/captcha/getPicture/' + data + '.png'
+}

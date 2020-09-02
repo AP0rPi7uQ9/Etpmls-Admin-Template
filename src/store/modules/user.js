@@ -1,4 +1,4 @@
-import { login, logout, UserGetCurrent } from '@/api/etpmls-admin'
+import { login, logout, UserGetCurrent } from '@/api/Etpmls-Admin'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 

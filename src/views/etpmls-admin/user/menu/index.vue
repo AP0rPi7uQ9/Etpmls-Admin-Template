@@ -48,8 +48,8 @@
 
 <script>
 import hljs from 'vue-json-edit/node_modules/highlight.js'
-import { MenuCreate, MenuGetAll } from '@/api/etpmls-admin'
-import { successMessage, getlang } from '@/utils/etpmls-admin'
+import { MenuCreate, MenuGetAll } from '@/api/Etpmls-Admin'
+import { successMessage, getlang } from '@/utils/Etpmls-Admin'
 export default {
   name: 'App',
   data: function() {
