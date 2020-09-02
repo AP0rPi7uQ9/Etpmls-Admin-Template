@@ -80,7 +80,7 @@ export function deleteConfirmMessage(_this, message, doThen) {
 }
 
 export function getlang(_this, field) {
-  return _this.$t('etpmls_admin.' + field)
+  return _this.$t('etpmls-admin.' + field)
 }
 
 import { getToken } from '@/utils/auth'

@@ -67,13 +67,12 @@ export default {
   created() {
     this.setUploadHeader()
     if (this.image.path) {
-      this.imageUrl = this.image.path
+      this.imageUrl = getBaseUrl() + this.image.path
     }
-    console.log(this.image)
   },
   methods: {
     handleAvatarSuccess(res, file) {
-      this.imageUrl = '/' + res.data.path
+      this.imageUrl = getBaseUrl() + '/' + res.data.path
       this.$emit('update:value', { path: res.data.path })
     },
     beforeAvatarUpload(file) {

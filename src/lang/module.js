@@ -2,9 +2,9 @@
 // 输入你的模块名，注册模块语言包
 export function getModuleList() {
   return [
-    // 'cms',
     // 'module 1',
     // 'module 2',
     // ...
+    'etpmls-admin'
   ]
 }

@@ -9,17 +9,21 @@ import enLocale from './en'
 import zhLocale from './zh'
 import esLocale from './es'
 import jaLocale from './ja'
+import enLocale_etpmls_admin from './en_etpmls-admin'
+import zhLocale_etpmls_admin from './zh_etpmls-admin'
 
 Vue.use(VueI18n)
 
 const messages = {
   en: {
     ...enLocale,
-    ...elementEnLocale
+    ...elementEnLocale,
+    ...enLocale_etpmls_admin
   },
   zh: {
     ...zhLocale,
-    ...elementZhLocale
+    ...elementZhLocale,
+    ...zhLocale_etpmls_admin
   },
   es: {
     ...esLocale,
