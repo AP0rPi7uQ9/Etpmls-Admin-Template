@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { getlang } from '@/utils/Etpmls-Admin'
+import { getlang } from '@/utils/etpmls-admin'
 export default {
   name: 'SidebarLogo',
   props: {

@@ -67,8 +67,8 @@
   </div>
 </template>
 <script>
-import { PermissionCreate, PermissionEdit } from '@/api/Etpmls-Admin'
-import { successMessage, getlang } from '@/utils/Etpmls-Admin'
+import { PermissionCreate, PermissionEdit } from '@/api/etpmls-admin'
+import { successMessage, getlang } from '@/utils/etpmls-admin'
 const emptyForm = {
   name: '',
   method: [],

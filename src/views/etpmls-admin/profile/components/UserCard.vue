@@ -24,7 +24,7 @@
 
 <script>
 import PanThumb from '@/components/PanThumb'
-import { getlang } from '@/utils/Etpmls-Admin'
+import { getlang } from '@/utils/etpmls-admin'
 
 export default {
   components: { PanThumb },

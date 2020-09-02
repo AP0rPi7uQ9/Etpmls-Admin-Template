@@ -26,7 +26,7 @@
 import { mapGetters } from 'vuex'
 import UserCard from './components/UserCard'
 import Basic from './components/Basic'
-import { getlang } from '@/utils/Etpmls-Admin'
+import { getlang } from '@/utils/etpmls-admin'
 
 export default {
   name: 'Profile',

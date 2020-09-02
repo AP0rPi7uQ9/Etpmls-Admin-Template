@@ -227,7 +227,7 @@ export default {
       cannot_exceed_200kb_jpg: 'The size of the uploaded profile picture cannot exceed 200KB!'
     },
     etp_variable: {
-      title: 'Etpmls-Admin'
+      title: 'etpmls-admin'
     }
   }
 }

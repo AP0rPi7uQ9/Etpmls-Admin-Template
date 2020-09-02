@@ -6,7 +6,7 @@
           <el-card class="card" shadow="never">
             <div slot="header">
               <span>{{ lang('version_information') }}</span>
-              <div style="float: right;">Etpmls-Admin</div>
+              <div style="float: right;">etpmls-admin</div>
             </div>
             <table class="table">
               <tr>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { getlang } from '@/utils/Etpmls-Admin'
+import { getlang } from '@/utils/etpmls-admin'
 export default {
   name: 'Index',
   methods: {

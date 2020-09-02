@@ -98,9 +98,9 @@
 </template>
 
 <script>
-import { UserGetAll, UserDelete } from '@/api/Etpmls-Admin'
+import { UserGetAll, UserDelete } from '@/api/etpmls-admin'
 import TableEdit from './components/TableEdit'
-import { successMessage, errorTextMessage, deleteConfirmMessage, getlang } from '@/utils/Etpmls-Admin'
+import { successMessage, errorTextMessage, deleteConfirmMessage, getlang } from '@/utils/etpmls-admin'
 export default {
   name: 'ComprehensiveTable',
   components: {

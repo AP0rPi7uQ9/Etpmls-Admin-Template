@@ -227,7 +227,7 @@ export default {
       cannot_exceed_200kb_jpg: '上传头像图片大小不能超过 200KB!'
     },
     etp_variable: {
-      title: 'Etpmls-Admin'
+      title: 'etpmls-admin'
     }
   }
 }

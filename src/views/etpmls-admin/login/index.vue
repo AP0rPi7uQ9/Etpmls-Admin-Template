@@ -3,13 +3,13 @@
     <div class="video-container">
       <div :style="fixStyle" class="filter" />
       <video :style="fixStyle" autoplay loop class="fillWidth" @canplay="canplay">
-        <source src="@/assets/Etpmls-Admin/login/login.mp4" type="video/mp4">
+        <source src="@/assets/etpmls-admin/login/login.mp4" type="video/mp4">
         {{ lang('etp_message.video_not_supported') }}
-        <source src="@/assets/Etpmls-Admin/login/login.mp4" type="video/webm">
+        <source src="@/assets/etpmls-admin/login/login.mp4" type="video/webm">
         {{ lang('etp_message.video_not_supported') }}
       </video>
       <div v-if="!vedioCanPlay" class="poster hidden">
-        <img :style="fixStyle" src="@/assets/Etpmls-Admin/login/login.jpg" alt="">
+        <img :style="fixStyle" src="@/assets/etpmls-admin/login/login.jpg" alt="">
       </div>
       <div class="login-container">
 
@@ -75,8 +75,8 @@
 </template>
 <script>
 import LangSelect from '@/components/LangSelect'
-import { CaptchaGetOne, CaptchaGetPicture } from '@/api/Etpmls-Admin'
-import { getlang } from '@/utils/Etpmls-Admin'
+import { CaptchaGetOne, CaptchaGetPicture } from '@/api/etpmls-admin'
+import { getlang } from '@/utils/etpmls-admin'
 export default {
   components: { LangSelect },
   props: [],
