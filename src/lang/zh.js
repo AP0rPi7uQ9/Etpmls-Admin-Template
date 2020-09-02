@@ -56,7 +56,8 @@ export default {
       uploaded_only_jpg: '上传头像图片只能是 JPG 格式!',
       cannot_exceed_200kb_jpg: '上传头像图片大小不能超过 200KB!',
       file_600kb: '文件大小超过 600KB',
-      image_only: '应该选择image/*类型的文件'
+      image_only: '应该选择image/*类型的文件',
+      image_600kg: '只能上传不超过 600KB 的image/*文件'
     },
     etp_variable: {
       title: 'etpmls-admin'

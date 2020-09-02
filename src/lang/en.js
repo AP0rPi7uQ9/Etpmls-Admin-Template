@@ -226,7 +226,8 @@ export default {
       uploaded_only_jpg: 'The uploaded profile picture can only be in JPG format!',
       cannot_exceed_200kb_jpg: 'The size of the uploaded profile picture cannot exceed 200KB!',
       file_600kb: 'File size exceeds 600KB',
-      image_only: 'Should choose image/* file type'
+      image_only: 'Should choose image/* file type',
+      image_600kg: 'Only upload image/* files that do not exceed 600KB'
     },
     etp_variable: {
       title: 'etpmls-admin'
