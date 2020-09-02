@@ -87,3 +87,7 @@ import { getToken } from '@/utils/auth'
 export function getUserToken() {
   return getToken()
 }
+
+export function getBaseUrl() {
+  return process.env.VUE_APP_BASE_API
+}

@@ -42,7 +42,8 @@
 </style>
 
 <script>
-import { getUserToken } from '@/utils/etpmls-admin' // get token from cookie
+import { getUserToken, getBaseUrl } from '@/utils/etpmls-admin' // get token from cookie
+import { AttachmentUploadImage } from '@/api/etpmls-admin'
 import { getlang } from '@/utils/etpmls-admin'
 export default {
   props: {
@@ -59,7 +60,7 @@ export default {
     return {
       image: this.value,
       imageUrl: '',
-      avatarAction: process.env.VUE_APP_BASE_API + '/attachment/uploadImage',
+      avatarAction: getBaseUrl() + AttachmentUploadImage(),
       headers: {}
     }
   },
@@ -80,10 +81,10 @@ export default {
       const isLt2M = file.size / 1024 < 200
 
       if (!isJPG) {
-        this.$message.error('上传头像图片只能是 JPG 格式!')
+        this.$message.error(this.lang('etp_message.uploaded_only_jpg'))
       }
       if (!isLt2M) {
-        this.$message.error('上传头像图片大小不能超过 200KB!')
+        this.$message.error(this.lang('etp_message.cannot_exceed_200kb_jpg'))
       }
       return isJPG && isLt2M
     },

@@ -163,3 +163,11 @@ export function CaptchaGetOne() {
 export function CaptchaGetPicture(data) {
   return '/api/v3/captcha/getPicture/' + data + '.png'
 }
+
+/**
+ * @return {string}
+ */
+export function AttachmentUploadImage() {
+  return '/api/v3/attachment/uploadImage'
+}
+

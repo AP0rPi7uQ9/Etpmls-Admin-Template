@@ -76,7 +76,7 @@
 <script>
 import LangSelect from '@/components/LangSelect'
 import { CaptchaGetOne, CaptchaGetPicture } from '@/api/etpmls-admin'
-import { getlang } from '@/utils/etpmls-admin'
+import { getlang, getBaseUrl } from '@/utils/etpmls-admin'
 export default {
   components: { LangSelect },
   props: [],
@@ -146,7 +146,7 @@ export default {
       const { data } = await CaptchaGetOne()
       this.form.captcha_id = data
       // Show Picture
-      this.captcha_id_src = process.env.VUE_APP_BASE_API + CaptchaGetPicture(data)
+      this.captcha_id_src = getBaseUrl() + CaptchaGetPicture(data)
     },
     windowsResize() {
       window.onresize = () => {
