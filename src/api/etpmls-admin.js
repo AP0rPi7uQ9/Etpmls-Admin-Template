@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/user/login',
+    url: '/api/v3/user/login',
     method: 'post',
     data
   })
@@ -10,7 +10,7 @@ export function login(data) {
 
 export function UserGetCurrent(token) {
   return request({
-    url: '/user/getCurrent',
+    url: '/api/v3/user/getCurrent',
     method: 'get',
     params: { token }
   })
@@ -18,14 +18,14 @@ export function UserGetCurrent(token) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
+    url: '/api/v3/user/logout',
     method: 'post'
   })
 }
 
 export function register(data) {
   return request({
-    url: '/user/register',
+    url: '/api/v3/user/register',
     method: 'post',
     data
   })
@@ -33,7 +33,7 @@ export function register(data) {
 
 export function RoleCreate(data) {
   return request({
-    url: '/role/create',
+    url: '/api/v3/role/create',
     method: 'post',
     data
   })
@@ -41,7 +41,7 @@ export function RoleCreate(data) {
 
 export function RoleEdit(data) {
   return request({
-    url: '/role/edit',
+    url: '/api/v3/role/edit',
     method: 'put',
     data
   })
@@ -49,7 +49,7 @@ export function RoleEdit(data) {
 
 export function RoleGetAll(param) {
   return request({
-    url: '/role/getAll',
+    url: '/api/v3/role/getAll',
     method: 'get',
     params: param
   })
@@ -57,7 +57,7 @@ export function RoleGetAll(param) {
 
 export function RoleDelete(data) {
   return request({
-    url: '/role/delete',
+    url: '/api/v3/role/delete',
     method: 'delete',
     data
   })
@@ -65,7 +65,7 @@ export function RoleDelete(data) {
 
 export function UserCreate(data) {
   return request({
-    url: '/user/create',
+    url: '/api/v3/user/create',
     method: 'post',
     data
   })
@@ -73,7 +73,7 @@ export function UserCreate(data) {
 
 export function UserEdit(data) {
   return request({
-    url: '/user/edit',
+    url: '/api/v3/user/edit',
     method: 'put',
     data
   })
@@ -81,7 +81,7 @@ export function UserEdit(data) {
 
 export function UserGetAll(param) {
   return request({
-    url: '/user/getAll',
+    url: '/api/v3/user/getAll',
     method: 'get',
     params: param
   })
@@ -89,7 +89,7 @@ export function UserGetAll(param) {
 
 export function UserDelete(data) {
   return request({
-    url: '/user/delete',
+    url: '/api/v3/user/delete',
     method: 'delete',
     data
   })
@@ -97,7 +97,7 @@ export function UserDelete(data) {
 
 export function UserUpdateInformation(data) {
   return request({
-    url: '/user/updateInformation',
+    url: '/api/v3/user/updateInformation',
     method: 'put',
     data
   })
@@ -105,14 +105,14 @@ export function UserUpdateInformation(data) {
 
 export function MenuGetAll() {
   return request({
-    url: '/menu/getAll',
+    url: '/api/v3/menu/getAll',
     method: 'get'
   })
 }
 
 export function MenuCreate(data) {
   return request({
-    url: '/menu/create',
+    url: '/api/v3/menu/create',
     method: 'post',
     data
   })
@@ -120,7 +120,7 @@ export function MenuCreate(data) {
 
 export function PermissionCreate(data) {
   return request({
-    url: '/permission/create',
+    url: '/api/v3/permission/create',
     method: 'post',
     data
   })
@@ -128,7 +128,7 @@ export function PermissionCreate(data) {
 
 export function PermissionEdit(data) {
   return request({
-    url: '/permission/edit',
+    url: '/api/v3/permission/edit',
     method: 'put',
     data
   })
@@ -136,7 +136,7 @@ export function PermissionEdit(data) {
 
 export function PermissionGetAll(param) {
   return request({
-    url: '/permission/getAll',
+    url: '/api/v3/permission/getAll',
     method: 'get',
     params: param
   })
@@ -144,7 +144,7 @@ export function PermissionGetAll(param) {
 
 export function PermissionDelete(data) {
   return request({
-    url: '/permission/delete',
+    url: '/api/v3/permission/delete',
     method: 'delete',
     data
   })
@@ -152,7 +152,7 @@ export function PermissionDelete(data) {
 
 export function CaptchaGetOne() {
   return request({
-    url: '/captcha/getOne',
+    url: '/api/v3/captcha/getOne',
     method: 'get'
   })
 }
