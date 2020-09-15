@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'etpmls-admin',
+  title: 'Etpmls-Admin',
 
   /**
    * @type {boolean} true | false
