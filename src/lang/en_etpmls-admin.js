@@ -60,7 +60,7 @@ export default {
       image_600kg: 'Only upload image/* files that do not exceed 600KB'
     },
     etp_variable: {
-      title: 'etpmls-admin'
+      title: 'Etpmls-Admin'
     }
   }
 }

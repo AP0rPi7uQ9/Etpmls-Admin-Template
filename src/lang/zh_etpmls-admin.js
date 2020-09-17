@@ -60,7 +60,7 @@ export default {
       image_600kg: '只能上传不超过 600KB 的image/*文件'
     },
     etp_variable: {
-      title: 'etpmls-admin'
+      title: 'Etpmls-Admin'
     }
   }
 }
