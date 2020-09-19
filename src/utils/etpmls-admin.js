@@ -1,3 +1,5 @@
+import store from '@/store'
+
 /**
  * @copyright chuzhixin 1204505056@qq.com
  * @description all模式渲染后端返回路由
@@ -90,4 +92,8 @@ export function getUserToken() {
 
 export function getBaseUrl() {
   return process.env.VUE_APP_BASE_API
+}
+
+export function getUserId() {
+  return store.getters.id
 }
