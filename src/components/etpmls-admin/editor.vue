@@ -9,6 +9,7 @@
 
 <script>
 import { getUserToken } from '@/utils/etpmls-admin'
+import { AttachmentUploadImage } from '@/api/etpmls-admin'
 import Editor from '@tinymce/tinymce-vue'
 // Import TinyMCE
 import tinymce from 'tinymce/tinymce'
@@ -54,11 +55,11 @@ export default {
       content_images: [],
       init: {
         vue_this: this,
-        language_url: '/static/admin/tinymce/zh_CN.js',
+        language_url: '/etpmls-admin/tinymce/zh_CN.js',
         language: 'zh_CN',
-        skin_url: '/static/admin/tinymce/skins/ui/oxide',
+        skin_url: '/etpmls-admin/tinymce/skins/ui/oxide',
         content_css:
-            '/static/admin/tinymce/skins/content/default/content.min.css',
+            '/etpmls-admin/tinymce/skins/content/default/content.min.css',
         theme_url: '/mytheme/mytheme.js',
         branding: false, // 去掉版权
         convert_urls: false, // 不转义绝对路径
@@ -83,7 +84,7 @@ export default {
 
           xhr = new XMLHttpRequest()
           xhr.withCredentials = false
-          xhr.open('POST', process.env.VUE_APP_BASE_API + '/attachment/uploadImage')
+          xhr.open('POST', process.env.VUE_APP_BASE_API + AttachmentUploadImage())
           xhr.setRequestHeader('token', getUserToken())
 
           xhr.upload.onprogress = function(e) {
