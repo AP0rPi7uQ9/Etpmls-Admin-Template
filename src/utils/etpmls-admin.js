@@ -91,7 +91,7 @@ export function getUserToken() {
 }
 
 export function getBaseUrl() {
-  return process.env.VUE_APP_BASE_API
+  return process.env.VUE_APP_BASE_API === '/' ? '' : process.env.VUE_APP_BASE_API
 }
 
 export function getUserId() {
