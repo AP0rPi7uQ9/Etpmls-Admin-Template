@@ -193,13 +193,17 @@ export default {
       })
     },
     async PermissionCreate() {
-      const { message } = await PermissionCreate(this.form)
+      var f = this.form
+      f.method = f.method.join(',')
+      const { message } = await PermissionCreate(f)
       successMessage(this, this.lang('success'), message)
       this.close()
       this.$emit('refreshTable', true)
     },
     async PermissionEdit() {
-      const { message } = await PermissionEdit(this.form)
+      var f = this.form
+      f.method = f.method.join(',')
+      const { message } = await PermissionEdit(f)
       successMessage(this, this.lang('success'), message)
       this.close()
       this.$emit('refreshTable', true)
