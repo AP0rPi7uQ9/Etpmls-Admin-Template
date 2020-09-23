@@ -97,3 +97,7 @@ export function getBaseUrl() {
 export function getUserId() {
   return store.getters.id
 }
+
+export function getUserName() {
+  return store.getters.username
+}
