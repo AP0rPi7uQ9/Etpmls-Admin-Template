@@ -67,7 +67,7 @@ export default {
       return isRightSize && isAccept
     },
     handleAvatarSuccess(res, file) {
-      this.thumbnail.push({ path: res.data.path })
+      this.thumbnail.push({ path: res.data.path, url: getBaseUrl() + '/' + res.data.path })
       this.$emit('update:value', this.thumbnail)
     },
     handleRemove(file, fileList) {
