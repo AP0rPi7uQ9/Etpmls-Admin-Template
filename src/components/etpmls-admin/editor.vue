@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getUserToken } from '@/utils/etpmls-admin'
+import { getUserToken, getBaseUrl } from '@/utils/etpmls-admin'
 import { AttachmentUploadImage } from '@/api/etpmls-admin'
 import Editor from '@tinymce/tinymce-vue'
 // Import TinyMCE
@@ -84,7 +84,7 @@ export default {
 
           xhr = new XMLHttpRequest()
           xhr.withCredentials = false
-          xhr.open('POST', process.env.VUE_APP_BASE_API + AttachmentUploadImage())
+          xhr.open('POST', getBaseUrl() + AttachmentUploadImage())
           xhr.setRequestHeader('token', getUserToken())
 
           xhr.upload.onprogress = function(e) {
