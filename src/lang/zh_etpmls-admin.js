@@ -1,10 +1,11 @@
 export default {
   'route_etpmls-admin': {
-    admin: 'Admin',
+    admin: '管理',
     user: '用户',
     role: '角色',
     permission: '权限',
-    menu: '菜单'
+    menu: '菜单',
+    setting: '设置'
   },
   'etpmls-admin': {
     add: '添加',
@@ -12,6 +13,8 @@ export default {
     added: '已添加',
     edit: '编辑',
     save: '保存',
+    clear: '清除',
+    clean_up: '清理',
     reset: '重置',
     operate: '操作',
     warning: '警告',
@@ -36,6 +39,8 @@ export default {
     basic_information: '基本资料',
     about_me: '关于我',
     avatar: '头像',
+    clear_cache: '清除缓存',
+    disk_cleanup: '磁盘清理',
     etp_message: {
       name_required: '请输入名称',
       remark_required: '请输入备注',
@@ -57,7 +62,9 @@ export default {
       cannot_exceed_200kb_jpg: '上传头像图片大小不能超过 200KB!',
       file_600kb: '文件大小超过 600KB',
       image_only: '应该选择image/*类型的文件',
-      image_600kg: '只能上传不超过 600KB 的image/*文件'
+      image_600kg: '只能上传不超过 600KB 的image/*文件',
+      clean_all_cache: '该操作将删除该系统所有模块的缓存，请谨慎操作。',
+      disk_cleanup: '该操作会自动清理磁盘无用文件，以节省服务器空间，删除期间请勿提交新的数据。'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

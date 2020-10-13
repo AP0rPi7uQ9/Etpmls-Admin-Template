@@ -4,7 +4,8 @@ export default {
     user: 'User',
     role: 'Role',
     permission: 'Permission',
-    menu: 'Menu'
+    menu: 'Menu',
+    setting: 'Setting'
   },
   'etpmls-admin': {
     add: 'Add',
@@ -12,6 +13,8 @@ export default {
     added: 'Added',
     edit: 'Edit',
     save: 'Save',
+    clear: 'Clear',
+    clean_up: 'Clean Up',
     reset: 'Reset',
     operate: 'Operate',
     warning: 'Warning',
@@ -36,6 +39,8 @@ export default {
     basic_information: 'Basic Information',
     about_me: 'About Me',
     avatar: 'Avatar',
+    clear_cache: 'Clear Cache',
+    disk_cleanup: 'Disk Cleanup',
     etp_message: {
       name_required: 'Please enter a name',
       remark_required: 'Please enter a remark',
@@ -57,7 +62,9 @@ export default {
       cannot_exceed_200kb_jpg: 'The size of the uploaded profile picture cannot exceed 200KB!',
       file_600kb: 'File size exceeds 600KB',
       image_only: 'Should choose image/* file type',
-      image_600kg: 'Only upload image/* files that do not exceed 600KB'
+      image_600kg: 'Only upload image/* files that do not exceed 600KB',
+      clean_all_cache: 'This operation will delete the cache of all modules of the system, please operate with caution.',
+      disk_cleanup: 'This operation will automatically clean up unnecessary files on the disk to save server space. Do not submit new data during deletion.'
     },
     etp_variable: {
       title: 'Etpmls-Admin'

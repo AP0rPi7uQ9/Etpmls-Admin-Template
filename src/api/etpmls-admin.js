@@ -171,3 +171,16 @@ export function AttachmentUploadImage() {
   return '/api/v3/attachment/uploadImage'
 }
 
+export function SettingClearCache() {
+  return request({
+    url: '/api/v3/setting/clearCache',
+    method: 'get'
+  })
+}
+
+export function SettingDiskCleanup() {
+  return request({
+    url: '/api/v3/setting/diskCleanup',
+    method: 'get'
+  })
+}
