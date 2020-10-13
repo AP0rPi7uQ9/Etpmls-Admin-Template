@@ -70,10 +70,10 @@ export function confirmMessage(_this, message, title, options, doThen, doCatch) 
     .catch(doCatch)
 }
 
-export function deleteConfirmMessage(_this, message, doThen) {
-  return _this.$confirm(message, 'Warning', { confirmButtonText: 'Confirm',
-    cancelButtonText: 'Cancel',
-    type: 'warning'
+export function deleteConfirmMessage(_this, message, doThen, type = 'warning', title = _this.$t('etpmls-admin.warning'), confirmButtonText = _this.$t('etpmls-admin.submit'), cancelButtonText = _this.$t('etpmls-admin.cancel')) {
+  return _this.$confirm(message, title, { confirmButtonText: confirmButtonText,
+    cancelButtonText: cancelButtonText,
+    type: type
   })
     .then(doThen)
     .catch(err => {
